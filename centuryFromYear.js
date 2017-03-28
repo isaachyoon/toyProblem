@@ -52,3 +52,15 @@ var consecutiveCount = function(array){
 
 var result = consecutiveCount([1,3,4,5,6,8,10,11,12,13,14,15,17,20])
 // console.log(result);
+
+function adjacentElementsProduct(inputArray) {
+    var largest = inputArray[0] * inputArray[1];
+    for(var i =0 ; i < inputArray.length; i ++) {
+        if(inputArray[i] * inputArray[i+1] > largest) {
+            largest = inputArray[i] * inputArray[i+1]
+        }
+    }
+    return largest;
+}
+
+console.log(adjacentElementsProduct([-23, 4, -3, 8, -12]))
