@@ -98,14 +98,14 @@ function sortByHeight(a) {
 	for(var i = 0; i < negative.length; i++) {
 		a.splice(negative[i], 0,  -1 )
 	}
-	console.log(a)
-	console.log(negative)
+	// console.log(a)
+	// console.log(negative)
 	return a;
 }
 
 function sortByHeight2(a) {
     var s = a.filter(h => h > 0).sort((a, b) => a - b)
-    console.log(s)
+    // console.log(s)
     return a.map(p => {
         if (p !== -1) {
             return s.shift();
@@ -119,23 +119,19 @@ function sortByHeight2(a) {
 sortByHeight2([-1, 150, 190, 170, -1, -1, 160, 180])
 
 function reverseParentheses(s) {
-	var bool = false;
-	var result = [];
-	for(var i = 0 ; i<s.length; i ++) {
-		if(s[i] === ")"){
-			bool = false;
-		}
-		if(bool) {
-			result.push(s[i])
-		}
-		if(s[i] === "(") {
-			bool = true;
-		}
+	function reverseOnce(s){
+    var regexp = /\(([^()]*)\)/i;
+    var subStr = regexp.exec(s)[1];
+    subStr = subStr.split('').reverse().join('');
+    return s.replace(regexp, subStr)
+  }
+	 if (s.includes('(')){
+        return reverseParentheses(reverseOnce(s));
+    } else {
+        return s;
+    }
 
-	}
-	result = result.reverse().join('')
-	console.log(result)
 
 }
 
-reverseParentheses("a(bc)de")
+console.log(reverseParentheses("a(bc)de"))
