@@ -112,7 +112,7 @@ function sortByHeight2(a) {
         }
 
         return -1;
-    })
+    })compet
 }
 
 
