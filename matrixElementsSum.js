@@ -117,3 +117,25 @@ function sortByHeight2(a) {
 
 
 sortByHeight2([-1, 150, 190, 170, -1, -1, 160, 180])
+
+function reverseParentheses(s) {
+	var bool = false;
+	var result = [];
+	for(var i = 0 ; i<s.length; i ++) {
+		if(s[i] === ")"){
+			bool = false;
+		}
+		if(bool) {
+			result.push(s[i])
+		}
+		if(s[i] === "(") {
+			bool = true;
+		}
+
+	}
+	result = result.reverse().join('')
+	console.log(result)
+
+}
+
+reverseParentheses("a(bc)de")
