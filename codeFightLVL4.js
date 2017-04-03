@@ -56,3 +56,31 @@ picture = ["abc",
            "ded"];
 console.log(addBorder(picture));
 
+function addBorder(picture) {
+    var width = picture[0].length + 2;
+    return [
+        '*'.repeat(width),
+        ...picture.map(line => `*${line}*`),
+        '*'.repeat(width)
+    ];
+}
+
+function areSimilar(A, B) {
+	for(var i =0 ; i < A.length; i ++) {
+		for (var j = 0 ; j< B.length; j++) {
+			if(A[i] === B[j]){
+				A.splice(i,1);
+				i--;
+				B.splice(j,1);
+				j--
+			}
+		}
+	}
+	if(A.length && B.length > 0) {
+		return false;
+	}
+	return true;
+}
+A = [1, 2, 3]
+B = [2, 1, 1]
+console.log(areSimilar(A,B))
