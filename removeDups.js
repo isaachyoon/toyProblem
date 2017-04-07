@@ -17,21 +17,10 @@
 // }
 
 const removeDups = (node) => {
-	let head = node;
 	let pointer = node;
-	node = node.next;
-	while(head!== null) {
-		while(node.next!== null) {
-			if(head.value === node.value) {
-
-			}
-			console.log('node', node.val)
-			node = node.next;
-		}
-		node = pointer
-		console.log('head', head.val)
-		head = head.next;
-
+	while(node !== null) {
+		console.log(node.value)
+		node = node.next
 	}
 }
 
@@ -49,4 +38,10 @@ ll.next.next.next.next = new Node(4);
 
 
 const result = removeDups(ll)
-console.log(result)
+
+
+var arr = [1,2,3,4];
+console.log(arr.pop());
+console.log(arr);
+
+
