@@ -40,86 +40,73 @@ tree.insert(1)
 tree.insert(4)
 tree.insert(6)
 tree.insert(7)
+tree.insert(10)
+
+
 
 
 let heightOfBinaryTree = function(tree) {
-	if(tree === null) {
+	// console.log('yee', tree)
+	if(tree === null){
 		return -1;
 	}
 
-	var leftH = heightOfBinaryTree(tree.left)
-	var rightH = heightOfBinaryTree(tree.right)
+	let leftH = heightOfBinaryTree(tree.left)
+	// console.log('L', leftH);
+	let rightH = heightOfBinaryTree(tree.right)
+	// console.log(rightH)
+	// console.log(leftH + " " + rightH)
 
-	if(leftH > rightH) {
-		return leftH + 1;
-	} else {
-		return rightH + 1;
+	return Math.max(leftH, rightH) + 1
+}
+
+
+let findMinHeight = function(tree){
+	if(tree === null) {
+		return -1;
 	}
+	let leftH = findMinHeight(tree.left);
+	let rightH = findMinHeight(tree.right);
+
+	return Math.min(leftH, rightH) + 1
+
 }
 
-
-
-
-
-
-
-
-
-
-
-// let heightOfBinaryTree = function(tree) {
-// 	if(tree === null) {
-// 		return -1;
-// 	}
-// 	let lefth = heightOfBinaryTree(tree.left);
-// 	let righth = heightOfBinaryTree(tree.right);
-
-// 	if(lefth > righth) {
-// 		return lefth + 1;
-// 	} else {
-// 		return righth + 1;
-// 	}
-// }
-
-console.log(heightOfBinaryTree(tree))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let binaryTree = function(val) {
-	this.val = val;
-	this.left = null;
-	this.right = null;
-}
-
-binaryTree.prototype.insert = function(val) {
-	if(val < this.val) {
-		if(this.left === null) {
-			this.left = new binaryTree(val)
-		} else {
-			this.left.insert(val)
-		}
-	} else {
-		if(this.right === null){
-			this.right = new binaryTree(val)
-		} else {
-			this.right.insert(val);
-		}
+let findMaxHeightR = function(tree) {
+		if(tree === null) {
+		return -1;
 	}
+	let leftH = findMaxHeightR(tree.left);
+	let rightH = findMaxHeightR(tree.right);
+
+	return Math.max(leftH, rightH) + 1
 }
 
-var tree = new binaryTree(3);
-tree.insert(2);
-tree.insert(5);
-tree.insert(1);
-console.log(tree);
+
+let main = function(tree){
+	console.log(findMaxHeightR(tree));
+	console.log(findMinHeight(tree));
+	return findMaxHeightR(tree) === findMinHeight(tree) + 1 ? true : false
+}
+
+console.log(main(tree))
+// console.log(findHeight(tree))
+// console.log(leftHeight)
+// console.log(rightHeight)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
