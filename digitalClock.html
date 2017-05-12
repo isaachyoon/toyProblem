@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Clock</title>
+</head>
+<body>
+
+
+  <style>
+
+
+  </style>
+
+  <script>
+
+    function digital(time) {
+      var iDiv = document.createElement('div');
+      iDiv.id = 'time';
+      document.getElementsByTagName('body')[0].appendChild(iDiv)
+      document.querySelector('#time').innerHTML = time;
+
+      iDiv.style.font-size: 30px
+
+
+      // window.addEventListener('change', ()=> document.querySelector('#'))
+
+
+    }
+
+    setInterval(()=> {
+      var d = new Date();
+      var hour = d.getHours() - 12;
+      var minutes = d.getMinutes();
+      var seconds = d.getSeconds();
+      var time = `${hour} : ${minutes} : ${seconds}`
+
+      digital(time)
+    }, 1000)
+
+
+  </script>
+</body>
+</html>
