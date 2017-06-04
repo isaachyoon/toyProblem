@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+
+  <style>
+
+
+  </style>
+  <script>
+    var body = document.querySelector('body')
+    var nav = document.createElement('div')
+    nav.id = 'navigationPanel'
+    nav.style.background= 'blue';
+
+
+    var array = ['home', 'contactMe', 'portfolio']
+
+    var list = array.map((x) => (`<li>${x}</li>`)).join('')
+    nav.innerHTML = list;
+    // body.style = "li {display: inline-block;}"
+    nav.style = "list-style: none; display: inline-block; color: blue; float: right";
+    // nav.style = "color: blue";
+
+    body.appendChild(nav)
+
+  </script>
+  <body>
+<html>
+
+<!--
+
+
+ -->
